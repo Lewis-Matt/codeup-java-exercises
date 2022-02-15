@@ -29,6 +29,7 @@ public class ConsoleExercises {
         // %n is newline
         System.out.printf("The value of pi is approximately %.2f.%n", pi);
 
+// TODO: Prompt a user to enter a integer and store that value in an int variable using the nextInt method.
         // The Scanner class allows us to get data input that the user enters into the console.
         // System.in refers to information a user types in the console.
         Scanner scanner = new Scanner(System.in);
@@ -40,7 +41,7 @@ public class ConsoleExercises {
         // Enter 2 integers - Every individual entry to the scanner is called a token, and, by default, tokens are separated by any whitespace (for example, the space character, or the newline character). When we called scanner.nextInt(), we just get the next token.
 
         // If we want to get a whole line that was entered, we can use the nextLine method. It will return any remaining input on the current line as a String, and advance the scanner to the next line. STRINGS only.
-
+// TODO: Prompt a user to enter 3 words, and store each of them in a separate variable. Then, display them back in the console, each on a newline.
         System.out.print("Enter 3 words, my dude: ");
         String word1 = scanner.next();
         String word2 = scanner.next();
@@ -57,5 +58,16 @@ public class ConsoleExercises {
         // Arrays had to be imported. It is the easiest way to print the contents of an array to console.
         // toString() Returns a string representation of the contents of the specified array. The string representation consists of a list of the array's elements, enclosed in square brackets ("[]").
         System.out.println(Arrays.toString(threeWords));
+
+// TODO: Prompt a user to enter a sentence, then store that sentence in a String variable using the nextLine method. Then, display that sentence back to the user.
+        System.out.print("Enter a sentence, my dude: ");
+        // Scanner.nextLine() scans the rest of the current line, excluding any line separator at the end. The nextLine reads from wherever the cursors last position is in the console. So, the cursors current position is at the end of "...my dude: ", so nextLine would return the remaining whitespace.
+        scanner.nextLine();
+        // And we have to call it again to get the entire user input
+        String sentence = scanner.nextLine();
+        System.out.println(sentence);
+
+// TODO: Prompt the user to enter values of length and width of a classroom at Codeup. Display the area and perimeter of that classroom.
+
     }
 }
