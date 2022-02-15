@@ -35,11 +35,12 @@ public class HelloWorld {
         System.out.println(y);
 
         // Object is the most generic type in Java, any value can be assigned to it.
-//        String theNumberThree = "three";
-//        Object o = theNumberThree;
+        String theNumberThree = "three";
+        Object o = theNumberThree;
+        // prints three
+        System.out.println(o);
 //        int three = (int) o;
-
-        // The above is the same as below: still can't cast string to int
+    // The above is the same as below: still can't cast string to int
 //        int three = (int) "three";
 
         // shorthand
@@ -54,7 +55,7 @@ public class HelloWorld {
         int m = 2;
         n /= m;
         m -= n;
-
+        System.out.println(m);
         // Note Integer.MAX_VALUE is a class constant that holds the max value for the int type
 
 
