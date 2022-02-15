@@ -39,8 +39,24 @@ public class HelloWorld {
 //        Object o = theNumberThree;
 //        int three = (int) o;
 
-        //
+        // The above is the same as below: still can't cast string to int
 //        int three = (int) "three";
+
+        // shorthand
+        int z = 4;
+        z += 5;
+
+        int a = 3;
+        int b = 4;
+        b *= a;
+
+        int n = 10;
+        int m = 2;
+        n /= m;
+        m -= n;
+
+        // Note Integer.MAX_VALUE is a class constant that holds the max value for the int type
+
 
     }
 }
