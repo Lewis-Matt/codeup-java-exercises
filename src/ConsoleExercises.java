@@ -74,6 +74,8 @@ public class ConsoleExercises {
         float area = length * width;
         float perimeter = (2 * length) + (2 * width);
         System.out.printf("The area of the room is %s and the perimeter is %s%n", area, perimeter);
+// By default, Java uses double to represent its floating-point numerals (so a literal 3.14 is typed double). It's also the data type that will give you a much larger number range, so I would strongly encourage its use over float.
+
 
 // The Scanner class can be told specifically what characters or pattern separates tokens in a piece of input with the useDelimiter method.
         scanner.useDelimiter("\n");
