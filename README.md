@@ -25,4 +25,4 @@
 - ==, .equals, .startsWith, .endsWith
 
 ## Bob
-- 
+- using .endsWith, .equals
