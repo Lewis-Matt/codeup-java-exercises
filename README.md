@@ -15,3 +15,5 @@
 - delimiter("\n")
 - Integer.parseInt()
 - Float.parseFloat()
+- .equals(), .equalsIgnoreCase() for comparing strings
+- switch
