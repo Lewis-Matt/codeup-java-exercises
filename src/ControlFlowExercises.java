@@ -58,16 +58,38 @@ public class ControlFlowExercises {
 
         // TODO: Display a table of powers
         // Prompt the user to enter an integer
-        System.out.println("Enter an integer");
-        // Display a table of squares and cubes from 1 to the value entered
-
-        //
+        System.out.println("What number would you like to go up to?");
+        // Store user value
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Continue? [y/N] ");
-        String userInput = scanner.next();
-        // While we use == to compare primitive types, we need to handle strings a little differently. Each String is a different object
-        // Use either the .equals or .equalsIgnoreCase method on the String we want to compare
-        boolean confirmation = userInput.equals("y");
+        int userInt = scanner.nextInt();
+        System.out.println(userInt);
+        // Display a table of squares and cubes from 1 to the value entered
+        System.out.printf("number | squared | cubed%n");
+        System.out.printf("------ | ------- | -----%n");
+
+        for (int q = 1; q <= userInt; q++) {
+            int squared = (int) Math.pow(q, 2);
+            int cubed = (int) Math.pow(q, 3);
+            System.out.printf("%s      | %s      | %s      %n", q, squared, cubed);
+        }
+
+
+        while (true) {
+            // Ask if the user wants to continue
+            System.out.print("Continue? [y/n] ");
+            String userInput = scanner.next();
+            // While we use == to compare primitive types, we need to handle strings a little differently. Each String is a different object
+            // Use either the .equals or .equalsIgnoreCase method on the String we want to compare
+            // boolean confirmation = userInput.equals("y");
+            if (!userInput.equalsIgnoreCase("y")) {
+                break;
+            } else {
+                userInt++;
+                int squared = (int) Math.pow(userInt, 2);
+                int cubed = (int) Math.pow(userInt, 3);
+                System.out.printf("%s      | %s      | %s      %n", userInt, squared, cubed);
+            }
+        }
 
 
     }
