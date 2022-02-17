@@ -17,3 +17,12 @@
 - Float.parseFloat()
 - .equals(), .equalsIgnoreCase() for comparing strings
 - switch
+
+## StringExercises
+- immutable
+- concatenation
+- charAt, indexOf, indexAt, replace, trim
+- ==, .equals, .startsWith, .endsWith
+
+## Bob
+- 
