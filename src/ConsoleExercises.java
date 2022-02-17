@@ -68,6 +68,22 @@ public class ConsoleExercises {
         System.out.println(sentence);
 
 // TODO: Prompt the user to enter values of length and width of a classroom at Codeup. Display the area and perimeter of that classroom.
+        System.out.println("Enter Length and Width of room:");
+        float length = Float.parseFloat(scanner.nextLine());
+        float width = Float.parseFloat(scanner.nextLine());
+        float area = length * width;
+        float perimeter = (2 * length) + (2 * width);
+        System.out.printf("The area of the room is %s and the perimeter is %s%n", area, perimeter);
 
+// The Scanner class can be told specifically what characters or pattern separates tokens in a piece of input with the useDelimiter method.
+        scanner.useDelimiter("\n");
+// TODO:
+        System.out.println("Enter Length and Width of room:");
+        float length1 = (scanner.nextFloat());
+        float width1 = (scanner.nextFloat());
+        float area1 = length1 * width1;
+        float perimeter1 = (2 * length1) + (2 * width1);
+        System.out.printf("The area of the room is %s and the perimeter is %s", area1, perimeter1);
     }
 }
+
