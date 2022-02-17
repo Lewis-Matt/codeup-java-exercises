@@ -37,7 +37,7 @@ public class ControlFlowExercises {
             System.out.printf("%s%n", y);
         }
 
-        int n = 10000000;
+        int n = 1000000;
         // Note we can put the incrementation in the loop (rather than in the condition)
         for (z = 2; z <= n; ) {
             System.out.printf("%s%n", z);
