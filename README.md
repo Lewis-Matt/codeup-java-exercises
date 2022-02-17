@@ -12,3 +12,6 @@
 - Scanner class: next(), nextInt(), etc.
 - Arrays class, toString() to print elements of an array
 - loop through array, get each user input with scanner.next() and put in array
+- delimiter("\n")
+- Integer.parseInt()
+- Float.parseFloat()
