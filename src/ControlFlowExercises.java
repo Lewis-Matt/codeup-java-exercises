@@ -72,8 +72,7 @@ public class ControlFlowExercises {
             int cubed = (int) Math.pow(q, 3);
             System.out.printf("%s      | %s      | %s      %n", q, squared, cubed);
         }
-
-
+        // Loop to continue passed initial user number
         while (true) {
             // Ask if the user wants to continue
             System.out.print("Continue? [y/n] ");
@@ -90,10 +89,40 @@ public class ControlFlowExercises {
                 System.out.printf("%s      | %s      | %s      %n", userInt, squared, cubed);
             }
         }
-
-
+        // TODO: Convert given number grades into letter grades
+        boolean confirm = true;
+        do {
+            // Prompt user for 0-100 grade
+            System.out.println("Enter a numerical grade:");
+            int grade = scanner.nextInt();
+            String letterGrade;
+            // Display letter grade
+            // Switch statements can't accept expressions(i.e. <100 $ >90 = A), however grades change at every factor of 10. Since 'grade' is an integer, it will always round to the nearest int. If we wanted A-, B+, etc. it would be best to us 'if' statements.
+            switch (grade/10) {
+                case 10:
+                case 9:
+                    letterGrade = "A";
+                    break;
+                case 8:
+                    letterGrade = "B";
+                    break;
+                case 7:
+                    letterGrade = "C";
+                    break;
+                case 6:
+                    letterGrade = "D";
+                    break;
+                default:
+                    letterGrade = "F";
+            }
+            System.out.println("Grade = " + letterGrade);
+            // Prompt user to continue
+            System.out.print("Continue? [y/n] ");
+            String userConfirm = scanner.next();
+            if (userConfirm.equalsIgnoreCase("y")) {
+                continue;
+            }
+            confirm = false;
+        } while (confirm);
     }
 }
-// Two types of control structures
-// Conditionals
-// Loops
