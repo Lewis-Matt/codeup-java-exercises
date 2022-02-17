@@ -41,7 +41,6 @@ public class StringExercise {
         String ex3 = "I can do backslashes \\, double backslashes \\\\,\n" +
                 "and the amazing triple backslash \\\\\\!\n";
         System.out.println(ex3);
-
     }
 
 }
