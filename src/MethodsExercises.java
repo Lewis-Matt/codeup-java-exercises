@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class MethodsExercises {
 
@@ -88,6 +89,40 @@ public class MethodsExercises {
         return factorial(num - 1) * num;
     }
 
+    // TODO: Create an application that simulates dice rolling
+    // Ask for number of sides
+    // Prompt to roll
+    // Roll two dice, display both results
+    // Ask if they want to re-roll
+    // Use Math.random
+
+    public static void rollDice() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many sides or on the dice? Choose an even number between 4 and 20(nerd)");
+        int numberSides = scanner.nextInt();
+        if (numberSides > 20 || numberSides < 4 || numberSides % 2 != 0) {
+            rollDice();
+        }
+        System.out.println("Ready to roll? [y/n]");
+        boolean response = scanner.next().equalsIgnoreCase("y");
+        while (response) {
+            // Dice rolls
+            // To use random class, need to create an instance of it for each die
+            Random dice1 = new Random();
+            Random dice2 = new Random();
+            // To generate a random integer - nextInt(max): 0 (inclusive) to max (exclusive). Add 1 to make max inclusive.
+            int rollDice1 = dice1.nextInt(numberSides - 1) + 1;
+            int rollDice2 = dice2.nextInt(numberSides - 1) + 1;
+            int sum = rollDice1 + rollDice2;
+            System.out.printf("Dice one: %s, Dice two: %s, for a total of %s.%n", rollDice1, rollDice2, sum);
+            System.out.println("Re-roll? [y/n]");
+            response = scanner.next().equalsIgnoreCase("y");
+        }
+        System.out.println("Okay, bye!");
+    }
+
+
+    /////////////////////////////////////////MAIN - METHOD CALLS/////////////////////////////////////////////////////
     public static void main(String[] args) {
         // Add
         System.out.println(add(3, 7));
@@ -101,6 +136,8 @@ public class MethodsExercises {
         System.out.println(modulo(30, 9));
         // Factorial
         callFactorial();
+        // Dice
+        rollDice();
 
     }
 }
