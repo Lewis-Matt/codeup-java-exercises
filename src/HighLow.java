@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Set;
 
 public class HighLow {
@@ -11,6 +12,16 @@ public class HighLow {
     //    Keep track of how many guesses a user makes.
     //    Set an upper limit on the number of guesses.
 
+    // Random number generator for 1-100
+    public static int randomNumberGenerator(){
+        Random randomNumber = new Random();
+        // rand.nextInt((max - min) + 1) + min;
+        return randomNumber.nextInt((100 - 1) + 1)+1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(randomNumberGenerator());
+    }
 
 
 }
