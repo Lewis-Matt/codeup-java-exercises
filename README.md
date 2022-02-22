@@ -32,4 +32,10 @@
 - scanner.hasNextInt() can be used as a check for the correct input as well
 - rand.nextInt((max - min) + 1) + min; is inclusive min to max
 
+## Student
+- static
+- private
+- constructors
+- this
+
 ## 
