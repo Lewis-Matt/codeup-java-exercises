@@ -38,4 +38,6 @@
 - constructors
 - this
 
-## 
+## Person
+- using constructors and private(class) fields
+- examples of reference variables being passed by value, and how they can be changed
