@@ -1,5 +1,5 @@
 
-// TODO:////////////////////////////////////////////////////LESSON NOTES//////////////////////////////////////////////////////
+// TODO:////////////////////////////////////LESSON NOTES//////////////////////////////////////
 
 // In contrast to instance fields are static fields, those that belong to a class as a whole. Static fields are accessible through the class itself. In other words, they are accessible without creating an instance of the class.
 // Ex: System.out.println(Math.PI); // 3.141592653589793
