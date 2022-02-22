@@ -48,4 +48,8 @@
 - Integer.parseInt()
 - Double.parseDouble()
 
-## 
+## Circle, CircleApp
+- private variables, accessed via public methods
+- constructor with parameter, parameter passed from Input class
+- %.2f in printf
+- static, private fields accessed via public static methods (method called in instance to update private field)
