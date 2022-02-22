@@ -68,11 +68,11 @@ class Student {
 }
 
 // The this keyword provides us a way to refer to the current instance. You can think of this as saying "this object". You can only use the this keyword inside of an instance method, as it is an error to do so elsewhere.
-class Person {
+class PersonLesson {
     private String name;
 
     // Instance method
-    public Person(String name) {
+    public PersonLesson(String name) {
         this.name = name;
     }
 
