@@ -51,7 +51,7 @@ public class Input {
         }
     }
 
-    double getDouble(double min, double max) {
+    public double getDouble(double min, double max) {
         double input;
         do {
             System.out.printf("Enter a decimal number between %s and %s: %n", min, max);
@@ -60,7 +60,7 @@ public class Input {
         return input;
     }
 
-    double getDouble() {
+    public double getDouble() {
         try {
             String inputAsString = getString();
             return Double.parseDouble(inputAsString);
