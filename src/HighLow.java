@@ -29,7 +29,7 @@ public class HighLow {
         int userGuess;
         int numberToGuess = randomNumberGenerator();
         // TEST
-        System.out.println(numberToGuess);
+//        System.out.println(numberToGuess);
         // If I did while(scanner.hasNextInt) {}, it would only check on the intial input, and not the inputs within the loop. Used try/catch.
         try {
             while (attempts > 0) {
