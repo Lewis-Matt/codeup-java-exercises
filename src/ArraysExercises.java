@@ -44,7 +44,7 @@ public class ArraysExercises {
     //// access the first element in the second row
     // System.out.println(matrix[1][0]); // 4
 
-// TODO: Iterating over every element in matrix
+    // TODO: Iterating over every element in matrix
     // for (int[] row : matrix) {
     //    System.out.println("+---+---+---+");
     //    System.out.print("| ");
@@ -63,12 +63,22 @@ public class ArraysExercises {
 //              | 7 | 8 | 9 |
 //              +---+---+---+
 // TODO: *********************************EXERCISE*********************************
+
+// TODO: Create a static method named addPerson. It should accept an array of Person objects, as well as a single person object to add to the passed array. It should return an array whose length is 1 greater than the passed array, with the passed person object at the end of the array.
+
+    public static Person[] addPerson(Person[] arr, Person person) {
+        Person[] copy = Arrays.copyOf(arr, arr.length + 1);
+        copy[copy.length - 1] = person;
+        return copy;
+    }
+////////////////////////////////////////////MAIN////////////////////////////////////////////
     public static void main(String[] args) {
+// TODO: What happens when you run the following code? Why is Arrays.toString necessary?
         int[] numbers = {1, 2, 3, 4, 5};
-        // println requires String as input, so we must convert our array
+        // println(numbers) returns the object's location in memory (as numbers holds a reference value to the object).
         System.out.println(Arrays.toString(numbers));
 
-        // TODO: Create an array that holds 3 Person objects. Assign a new instance of the Person class to each element.
+// TODO: Create an array that holds 3 Person objects. Assign a new instance of the Person class to each element.
 // ******* Note, all the classes created for other exercises are 'seen' by every other class within the 'src' directory (as long as they are public) *********
         Person[] personArr = new Person[3];
         personArr[0] = new Person("Amy");
@@ -80,10 +90,13 @@ public class ArraysExercises {
             System.out.println(people.getName());
         }
 
-        // TODO: Create a static method named addPerson. It should accept an array of Person objects, as well as a single person object to add to the passed array. It should return an array whose length is 1 greater than the passed array, with the passed person object at the end of the array.
-
-
-
+        // addPerson
+        Person addedPerson = new Person("Matt");
+        personArr = addPerson(personArr, addedPerson);
+//        System.out.println(Arrays.toString(personArr)); // this will print the memory location
+        for (Person people : personArr) {
+            System.out.println(people.getName());
+        }
     }
 
 }
