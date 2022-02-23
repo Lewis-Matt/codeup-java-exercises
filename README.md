@@ -63,3 +63,8 @@
 - Arrays.toString() - otherwise we may just be printing/accessing the memory location of the object
 - array methods (copyOf, fill, equals, sort)
 - two-dimensional arrays
+
+## ServerNameGenerator
+- cannot call a non-static method (class) within static main method
+- need to create an instance and have the main method in that instance
+- if 'static' isn't present, then it is an instance variable/method; so an object must be instantiated in order to use it
