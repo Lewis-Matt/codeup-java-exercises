@@ -36,7 +36,7 @@
 - static
 - private
 - constructors
-- this
+- this (use only inside an instance method)
 - a static class (all fields static) - means we never create instances of it (just reference it - like Math)
 - overloading constructors
 
