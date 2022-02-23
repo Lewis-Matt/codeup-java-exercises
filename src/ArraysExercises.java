@@ -62,4 +62,28 @@ public class ArraysExercises {
 //              +---+---+---+
 //              | 7 | 8 | 9 |
 //              +---+---+---+
+// TODO: *********************************EXERCISE*********************************
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+        // println requires String as input, so we must convert our array
+        System.out.println(Arrays.toString(numbers));
+
+        // TODO: Create an array that holds 3 Person objects. Assign a new instance of the Person class to each element.
+// ******* Note, all the classes created for other exercises are 'seen' by every other class within the 'src' directory (as long as they are public) *********
+        Person[] personArr = new Person[3];
+        personArr[0] = new Person("Amy");
+        personArr[1] = new Person("Addie");
+        personArr[2] = new Person("Izzy");
+
+        // TODO: Iterate through the array and print out the name of each person in the array.
+        for (Person people : personArr) {
+            System.out.println(people.getName());
+        }
+
+        // TODO: Create a static method named addPerson. It should accept an array of Person objects, as well as a single person object to add to the passed array. It should return an array whose length is 1 greater than the passed array, with the passed person object at the end of the array.
+
+
+
+    }
+
 }
