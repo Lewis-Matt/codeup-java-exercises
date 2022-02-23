@@ -55,3 +55,11 @@
 - constructor with parameter, parameter passed from Input class
 - %.2f in printf
 - static, private fields accessed via public static methods (method called in instance to update private field)
+
+## ArraysExercises
+- everything in src will compile when I run any class
+- every class in src has access to anyother public class in src
+- loop through arrays
+- Arrays.toString() - otherwise we may just be printing/accessing the memory location of the object
+- array methods (copyOf, fill, equals, sort)
+- two-dimensional arrays
