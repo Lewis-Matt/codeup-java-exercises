@@ -14,6 +14,7 @@ public class ServerNameGenerator {
     //////////////////////////////////////MAIN//////////////////////////////////////
     public static void main(String[] args) {
         // TODO: Select a random noun and adjective and hyphenate the combination and display the generated name to the user.
+        // Static fields (nouns, adj) are accessible without creating an instance of the class.
         System.out.printf("Here is your server name:%n%S-%S", getRandomElement(adjectives), getRandomElement(nouns));
     }
 }
