@@ -37,6 +37,7 @@
 - private
 - constructors
 - this
+- a static class (all fields static) - means we never create instances of it (just reference it - like Math)
 
 ## Person
 - using constructors and private(class) fields
