@@ -64,7 +64,7 @@ public class InheritPolyNotes {
 //  }
 // Any attempts to access the name or age properties outside of the Person or Employee classes will cause the code not to compile
 
-// The super keyword allows us to access a superclass's methods and constructors from within a subclass.
+// The super keyword allows us to access a superclasses methods and constructors from within a subclass.
 // TODO:
 //  class SuperHero extends Person {
 //    private String alterEgo;
