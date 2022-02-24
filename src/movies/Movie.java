@@ -28,9 +28,4 @@ public class Movie {
     public void setCategory(String newCategory) {
         this.category = newCategory;
     }
-
-    ////////////////////////////////////MAIN//////////////////////////////////
-    public static void main(String[] args) {
-
-    }
 }
