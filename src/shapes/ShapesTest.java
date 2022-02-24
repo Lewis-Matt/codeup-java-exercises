@@ -15,5 +15,8 @@ public class ShapesTest {
         //  TODO: Verify that the getPerimeter and getArea methods return 20 and 25, respectively.
         System.out.println(box2.getArea());
         System.out.println(box2.getPerimeter());
+
+        // TODO: How can you determine which getArea and getPerimeter methods are being called on each object?
+        // Command click on the method? Because that shows it is using the Rectangle's methods.
     }
 }
