@@ -53,6 +53,10 @@ public class AbstractInterfaceNotes {
     // Each subclass has a unique implementation of work, and we prevent duplicating code that deals with handling employee names or departments.
 
     // ************* INTERFACES ***********************
+    // There are a number of situations in software engineering when it is important for disparate groups of programmers to agree to a "contract" that spells out how their software interacts. Each group should be able to write their code without any knowledge of how the other group's code is written. Generally speaking, interfaces are such contracts.
+    // TODO: In the Java programming language, an interface is a reference type, similar to a class, that can contain only constants, method signatures, default methods, static methods, and nested types. Method bodies exist only for default methods and static methods. Interfaces cannot be instantiated—they can only be implemented by classes or extended by other interfaces.
+    // TODO: Interfaces as APIs
+    //  API is made public (to its customers), its implementation of the API is kept as a closely guarded secret—in fact, it may revise the implementation at a later date as long as it continues to implement the original interface that its customers have relied on.
     // Methods form the object's interface with the outside world.
     // In its most common form, an interface is a group of related methods with empty bodies.
     // An interface is an abstract class that follows these rules:
