@@ -9,7 +9,7 @@ package movies;
 import util.Input;
 
 public class MoviesApplication {
-    // Init new MoviesArray
+    // Inits an array of Movie type (separate class file) using findAll on an array of type Movie in the MoviesArray class
     public static Movie[] sortedMovies = MoviesArray.findAll();
 
     ///////////////////////////MAIN///////////////////////////
@@ -25,11 +25,14 @@ public class MoviesApplication {
         Input userResponse = new Input();
         // Continue prompting until user enters 0 - exit
         while (userResponse.getInt() != 0) {
+            // For loop example
             if (userResponse.getInt() == 1) {
                 for (int i = 0; i < sortedMovies.length; i++) {
+                    // sortedMovies is type Movie, which has a getName/getCategory method
                     System.out.printf("%s --- %s%n", sortedMovies[i].getName(), sortedMovies[i].getCategory());
                 }
             } else if (userResponse.getInt() == 2) {
+                // forEach loop
                 for (Movie movie : sortedMovies) {
                     if (movie.getCategory().equalsIgnoreCase("animated")) {
                         System.out.printf("%s --- %s%n", movie.getName(), movie.getCategory());
