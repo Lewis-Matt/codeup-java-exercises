@@ -101,6 +101,9 @@ class StudentTwo {
         return "Hello from " + this.name + "!";
     }
 }
+
+// TODO: You don't have to provide any constructors for your class, but you must be careful when doing this. The compiler automatically provides a no-argument, default constructor for any class without constructors. This default constructor will call the no-argument constructor of the superclass. In this situation, the compiler will complain if the superclass doesn't have a no-argument constructor so you must verify that it does. If your class has no explicit superclass, then it has an implicit superclass of Object, which does have a no-argument constructor.
+
 // TODO: Visibility
 
 //  Refers to how a class or instance field is allowed to be accessed. It allows us to encapsulate the data in our classes; that is, only expose what is necessary to other classes and objects.
