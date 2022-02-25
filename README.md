@@ -36,6 +36,7 @@
 - static
 - private
 - constructors
+- default constructor, default superclass (Object class)
 - this (use only inside an instance method)
 - a static class (all fields static) - means we never create instances of it (just reference it - like Math)
 - overloading constructors
@@ -68,3 +69,13 @@
 - cannot call a non-static method (class) within static main method
 - need to create an instance and have the main method in that instance
 - if 'static' isn't present, then it is an instance variable/method; so an object must be instantiated in order to use it
+
+## movies pckg
+- great example of classes interacting with other classes via methods.
+- looping through array with for, forEach
+
+## Rectangle, Square, ShapesTest
+- protected fields, get/set
+- overriding methods
+- super - access superclass (square extends rectangle)
+- 
