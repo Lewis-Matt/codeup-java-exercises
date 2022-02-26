@@ -1,8 +1,54 @@
 package shapes;
 
 // TODO: Make Square extends Rectangle.
+//  Changed to extend Quadrilateral for next exercise
+public class Square extends Quadrilateral {
+    // CONSTRUCTOR
+    public Square(double number) {
+        super(number, number);
+    }
 
-public class Square extends Rectangle {
+    @Override
+    public double getPerimeter() {
+        return (2 * length) + (2 * width);
+    }
+
+    @Override
+    public double getArea() {
+        return length * width;
+    }
+
+    @Override
+    public void setLength(double number) {
+        this.length = number;
+    }
+
+    @Override
+    public void setWidth(double number) {
+        this.width = number;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* INHERITANCE AND POLYMORPHISM EXERCISE
     // Need to init side otherwise getArea/Perimeter overrides won't see it
     double side;
 
@@ -28,5 +74,7 @@ public class Square extends Rectangle {
     public double getArea() {
         return Math.pow(side, 2);
     }
+    */
+
 }
 

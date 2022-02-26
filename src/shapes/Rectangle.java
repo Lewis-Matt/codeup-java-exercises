@@ -1,6 +1,38 @@
 package shapes;
 
-public class Rectangle {
+public class Rectangle extends Quadrilateral implements Measurable {
+    // CONSTRUCTOR
+    public Rectangle(double length, double width) {
+        // From the superclasses (Quadrilateral) protected fields
+        super(length, width);
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2 * (length + width);
+    }
+
+    @Override
+    public double getArea() {
+        return length * width;
+    }
+
+    @Override
+    public void setLength(double number) {
+        this.length = number;
+    }
+
+    @Override
+    public void setWidth(double number) {
+        this.width = number;
+    }
+
+
+
+
+
+
+    /* INHERITANCE AND POLYMORPHISM EXERCISE
     // Access Control (public, private, protected)
     // https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
     // TODO: It should have protected properties for both length and width.
@@ -22,5 +54,5 @@ public class Rectangle {
     public double getArea() {
         return length * width;
     }
-
+*/
 }
