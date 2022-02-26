@@ -78,4 +78,15 @@
 - protected fields, get/set
 - overriding methods
 - super - access superclass (square extends rectangle)
-- 
+
+## Measurable
+- interface
+- all methods are public and abstract, so implementing the interface means you have to implement (i.e. override) the methods
+
+## Quadrilateral
+- implementing an interface
+- abstract setters
+
+## Rectangle
+- extends class and implements interface
+- @Override - must override the abstract methods from interface and abstract superclass (Quad)
