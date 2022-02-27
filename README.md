@@ -90,3 +90,11 @@
 ## Rectangle
 - extends class and implements interface
 - @Override - must override the abstract methods from interface and abstract superclass (Quad)
+
+## grades/Student
+- ArrayList notes
+- .add, .size
+
+## grades/GradesApplication
+- HashMap notes
+- 
