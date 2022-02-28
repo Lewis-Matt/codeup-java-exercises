@@ -1,9 +1,12 @@
 package groceries;
 
+import movies.Movie;
+import movies.MoviesArray;
 import util.Input;
 
 public class GroceriesApplication {
-
+    // Inits an array of GroceryItem type (separate class file) using findAll method from GroceryArray
+    public static GroceryItem[] groceries = GroceryArray.findAll();
 
     public static void main(String[] args) {
         // TODO: A user should be prompted if they would like to create a grocery list.
@@ -21,8 +24,21 @@ public class GroceriesApplication {
             System.out.println("Would you like to enter a new item?");
             boolean keepShopping = input.yesNo();
             while (keepShopping) {
-                // display arrayList of grocery items
-                // if itemName is in the array
+                // Display a list of grocery categories
+                System.out.println("Categories:\n" +
+                        "0 --- all\n" +
+                        "1 --- fruit\n" +
+                        "2 --- vegetable\n" +
+                        "3 --- protein\n" +
+                        "4 --- dairy\n" +
+                        "5 --- grain\n" +
+                        "6 --- fats/sugars");
+                System.out.println("Select a category to view items: [0 - 6]");
+                int selectedCategory = input.getInt(0, 6);
+                for (GroceryItem category : groceries) {
+                    System.out.printf("Categories: %s%n", category.getCategory());
+                }
+
 
                 System.out.println("Would you like to enter another item?");
                 keepShopping = input.yesNo();
