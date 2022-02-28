@@ -10,6 +10,12 @@ public class GroceryItem {
         this.category = category;
     }
 
+    // Overload Constructor
+    public GroceryItem() {
+        this.item = getItem();
+        this.category = getCategory();
+    }
+
     // GETTERS
     public String getItem() {
         return item;
