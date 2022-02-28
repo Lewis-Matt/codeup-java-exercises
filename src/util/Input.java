@@ -26,7 +26,7 @@ public class Input {
     public int getInt(int min, int max) {
         int input;
         do {
-            System.out.printf("Enter an integer between %s and %s: %n", min, max);
+//            System.out.printf("Enter an integer between %s and %s: %n", min, max);
             input = scanner.nextInt();
         } while (input < min || input > max);
         return input;
