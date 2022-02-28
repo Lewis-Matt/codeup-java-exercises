@@ -1,5 +1,7 @@
 package grades;
 
+import util.Input;
+
 import java.util.HashMap;
 
 // TODO: HashMap
@@ -41,8 +43,16 @@ public class GradesApplication {
         students.put("steventyler", tyler);
         students.put("karen2020", karen);
 
-        // TODO: Print the list of GitHub usernames out to the console, and ask the user which student they would like to see more information about. The user should enter a GitHub username
-        System.out.printf("Which GitHub user would you like student info on: %s, %s, %s, or %s?", bob, mary, tyler, karen);
+        // TODO: Print the list of GitHub usernames out to the console, and ask the user which student they would like to see more information about. The user should enter a GitHub username.
+        System.out.println("Welcome!");
+        System.out.println("Here are the GitHub usernames of our students:");
+        System.out.printf("| %s | %s | %s | %s |%n", bob, mary, tyler, karen);
+        System.out.println("What student would you like to see more information on?");
+        // Using the Input Class created in a previous exercise
+        Input studentSelect = new Input();
+        String selectedStudent = studentSelect.getString();
+        System.out.printf("You selected: %s", selectedStudent);
+        // We can use keySet() to print all keys present in the map and values() to print all values.
 
     }
 
