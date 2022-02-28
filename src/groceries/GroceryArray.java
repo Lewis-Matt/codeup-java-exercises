@@ -3,6 +3,7 @@ package groceries;
 // (item, category)
 // categories: fruit, vegetable, protein, dairy, grain, fats/sugars
 public class GroceryArray {
+    // findAll() method - allows iterating through based on category, or displaying all
     public static GroceryItem[] findAll() {
         return new GroceryItem[]{
                 new GroceryItem("apple", "fruit"),
