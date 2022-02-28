@@ -4,7 +4,6 @@ public class GroceryItem {
     private String item;
     private String category;
 
-
     // GETTERS
     public String getItem() {
         return item;
