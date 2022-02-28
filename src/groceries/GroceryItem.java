@@ -4,6 +4,12 @@ public class GroceryItem {
     private String item;
     private String category;
 
+    // Constructor
+    public GroceryItem(String item, String category) {
+        this.item = item;
+        this.category = category;
+    }
+
     // GETTERS
     public String getItem() {
         return item;
@@ -22,9 +28,5 @@ public class GroceryItem {
         this.category = addedCategory;
     }
 
-    // Constructor
-    public GroceryItem(String item, String category) {
-        this.item = item;
-        this.category = category;
-    }
+
 }
