@@ -38,6 +38,7 @@ public class GradesApplication {
         karen.addGrade(65);
         karen.addGrade(95);
 
+        // Add to students hashMap
         students.put("bobMarley", bob);
         students.put("marymary", mary);
         students.put("steventyler", tyler);
@@ -46,15 +47,24 @@ public class GradesApplication {
         // TODO: Print the list of GitHub usernames out to the console, and ask the user which student they would like to see more information about. The user should enter a GitHub username.
         System.out.println("Welcome!");
         System.out.println("Here are the GitHub usernames of our students:");
-        System.out.printf("| %s | %s | %s | %s |%n", bob, mary, tyler, karen);
-        System.out.println("What student would you like to see more information on?");
-        // Using the Input Class created in a previous exercise
-        Input studentSelect = new Input();
-        String selectedStudent = studentSelect.getString();
-        System.out.printf("You selected: %s", selectedStudent);
         // We can use keySet() to print all keys present in the map and values() to print all values.
+        System.out.println(students.keySet());
+        boolean confirm;
+        do {
+            System.out.println("What student would you like to see more information on?");
+            // Using the Input Class created in a previous exercise
+            Input select = new Input();
+            String selected = select.getString();
+//        System.out.printf("You selected: %s", selectedStudent);
+            if (students.containsKey(selected)) {
+                System.out.printf("Name: %s | GitHub: %s%nAverage Grade: %.2f%n", students.get(selected).getName(), selected, students.get(selected).getGradeAverage());
+            } else {
+                System.out.println("Student not found/Invalid GitHub username.");
+            }
+            System.out.println("Would you like to select another student?");
+            confirm = select.yesNo();
 
+        } while (confirm);
+        System.out.println("Goodbye!");
     }
-
-
 }
