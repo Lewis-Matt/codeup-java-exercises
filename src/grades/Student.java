@@ -14,10 +14,19 @@ package grades;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Student {
     private String name;
     private ArrayList<Integer> grades;
+/*
+    // TODO: Bonus Attendance
+    private HashMap<String, String> attendance;
+    // Adds records to the HashMap.
+    public void recordAttendance(String date, String value) {
+
+    }
+*/
 
     // returns the student's name
     public String getName() {
