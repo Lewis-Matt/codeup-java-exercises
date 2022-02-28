@@ -55,13 +55,14 @@ public class GradesApplication {
             // Using the Input Class created in a previous exercise
             Input select = new Input();
             String selected = select.getString();
-//        System.out.printf("You selected: %s", selectedStudent);
+            // GitHub username is the key, the value is the Student object (which has the getName(), getGradeAverage() methods)
             if (students.containsKey(selected)) {
                 System.out.printf("Name: %s | GitHub: %s%nAverage Grade: %.2f%n", students.get(selected).getName(), selected, students.get(selected).getGradeAverage());
             } else {
                 System.out.println("Student not found/Invalid GitHub username.");
             }
-            System.out.println("Would you like to select another student?");
+            System.out.println("Would you like to select another student? [y/n]");
+            // Is true if input is 'y' or 'yes', otherwise false
             confirm = select.yesNo();
 
         } while (confirm);
