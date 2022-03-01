@@ -97,4 +97,16 @@
 
 ## grades/GradesApplication
 - HashMap notes
-- 
+
+## GroceriesApplication
+- TreeMap
+- Switch
+- old code at the bottom for integrating GroceryArray and GroceryItem
+
+## GroceryArray
+- *not used in the application
+- populate an array with items of another Class (GroceryItems)
+
+## GroceryItem
+- *not used in the application
+- constructor and methods for creating items for application, and populating array of groceries available
