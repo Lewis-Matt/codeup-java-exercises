@@ -32,7 +32,7 @@
 - scanner.hasNextInt() can be used as a check for the correct input as well
 - rand.nextInt((max - min) + 1) + min; is inclusive min to max
 
-## Student
+## notes.Student
 - static
 - private
 - constructors
@@ -91,7 +91,7 @@
 - extends class and implements interface
 - @Override - must override the abstract methods from interface and abstract superclass (Quad)
 
-## grades/Student
+## grades/notes.Student
 - ArrayList notes
 - .add, .size
 

@@ -1,4 +1,4 @@
-
+package notes;
 // TODO:////////////////////////////////////LESSON NOTES//////////////////////////////////////
 
 // In contrast to instance fields are static fields, those that belong to a class as a whole. Static fields are accessible through the class itself. In other words, they are accessible without creating an instance of the class.
@@ -60,10 +60,10 @@ class Student {
     }
 
     public static void main(String[] args) {
-        Student s1 = new Student("Student A");
-        Student s2 = new Student("Student B", "Voyagers");
-        System.out.println(s1.getInfo()); // "name: Student A cohort: Unassigned"
-        System.out.println(s2.getInfo()); // "name: Student B cohort: Voyagers"
+        Student s1 = new Student("notes.Student A");
+        Student s2 = new Student("notes.Student B", "Voyagers");
+        System.out.println(s1.getInfo()); // "name: notes.Student A cohort: Unassigned"
+        System.out.println(s2.getInfo()); // "name: notes.Student B cohort: Voyagers"
     }
 }
 
@@ -125,7 +125,7 @@ class StudentThree {
     }
 }
 
-// The code below uses the Student class we've just defined:
+// The code below uses the notes.Student class we've just defined:
 class StudentTest {
     public static void main(String[] args) {
         StudentThree student = new StudentThree("John Doe", 82.4);

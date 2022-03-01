@@ -1,3 +1,5 @@
+package notes;
+
 public class InheritPolyNotes {
 // We can define classes that extend, or inherit from another class with the extends keyword in the class definition. We call these subclasses, and the classes that are being inherited from / extended superclasses.
 //  A subclass inherits all the fields of it's superclass, and can re-use any of it's functionality.
