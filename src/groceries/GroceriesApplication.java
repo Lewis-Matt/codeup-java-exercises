@@ -9,12 +9,18 @@ public class GroceriesApplication {
     // Input Class - methods for validating user input
     static Input input = new Input();
 
-    // Initialize basket
-    public static TreeMap<GroceryItem, Integer> basket;
+    // Add to TreeMap containing items of a particular category and the quantity of each item added
+    public static void addToBasket(TreeMap<String, Integer> categoryBasket, String category, int quantity) {
+        categoryBasket.put(category, quantity);
+    }
 
-    // Add to shopping basket containing the quantity of each GroceryItem added
-    public static void addToBasket(TreeMap<String, Integer> basket, String category, int quantity) {
-        basket.put(category, quantity);
+    // DRY: Switch statement case dialogue
+    public static void caseDialogue(TreeMap<String, Integer> category) {
+//        System.out.printf("Enter a name of a %s%n", category);   // Can't get this to print object name (e.g. fruit)
+        String itemName = input.getString();
+        System.out.println("Enter the quantity: ");
+        int itemQuantity = input.getInt();
+        addToBasket(category, itemName, itemQuantity);
     }
 
     public static void groceryApp() {
@@ -50,35 +56,42 @@ public class GroceriesApplication {
                     case 0:
                         return;
                     case 1:
-                        System.out.println("Enter a name of a fruit to add: ");
-                        String itemName = input.getString();
-                        System.out.println("Enter the quantity: ");
-                        int itemQuantity = input.getInt();
-                        addToBasket(fruit, itemName, itemQuantity);
+                        System.out.println("Enter the name of a fruit to add: ");
+                        caseDialogue(fruit);
                         break;
                     case 2:
-
+                        System.out.println("Enter the name of a vegetable to add: ");
+                        caseDialogue(vegetable);
                         break;
                     case 3:
-
+                        System.out.println("Enter the name of a protein to add: ");
+                        caseDialogue(protein);
                         break;
                     case 4:
-
+                        System.out.println("Enter the name of a dairy product to add: ");
+                        caseDialogue(dairy);
                         break;
                     case 5:
-
+                        System.out.println("Enter the name of a grain to add: ");
+                        caseDialogue(grain);
                         break;
                     case 6:
-
+                        System.out.println("Enter the name of a fat to add: ");
+                        caseDialogue(fats);
                         break;
                 }
 
                 // Prompt to continue adding to list
-                System.out.println("Would you like to enter another item?");
+                System.out.println("Would you like to enter another item? [y/n]");
                 keepShopping = input.yesNo();
             }
             System.out.println("Your finalized grocery list:");
-            System.out.println(basket);
+            System.out.printf("Fruits: %s%n", fruit);
+            System.out.printf("Vegetables: %s%n", vegetable);
+            System.out.printf("Proteins: %s%n", protein);
+            System.out.printf("Dairy: %s%n", dairy);
+            System.out.printf("Grains: %s%n", grain);
+            System.out.printf("Fats: %s%n", fats);
         } else {
             System.out.println("Thank you, see you next time!");
         }
