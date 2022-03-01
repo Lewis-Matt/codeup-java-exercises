@@ -1,5 +1,5 @@
 package groceries;
-
+// TODO: THIS WAS A FIRST ATTEMPT TO CREATE ITEMS FOR THE APPLICATION. IT IS NOT BEING USED AS THE GROCERYARRAY ISN'T USED.
 public class GroceryItem {
     private String item;
     private String category;
