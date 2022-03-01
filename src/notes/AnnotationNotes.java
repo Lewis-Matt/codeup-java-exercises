@@ -1,5 +1,5 @@
 package notes;
-
+// TODO: See annotations-exercise repo
 import java.util.ArrayList;
 
 public class AnnotationNotes {
