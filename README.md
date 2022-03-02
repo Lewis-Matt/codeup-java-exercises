@@ -48,7 +48,7 @@
 ## util/Input
 - method overloading
 - try, catch, throw exception
-- Integer.parseInt()
+- Integer.parseInt() - Integer.valueOf(parseInt(s, radix))
 - Double.parseDouble()
 
 ## Circle, CircleApp
