@@ -42,6 +42,8 @@ public class Input {
             //the integer value represented by the argument in decimal.
             //Throws:
             //NumberFormatException – if the string does not contain a parsable integer.
+            // TODO: Note that, internally, valueOf is already calling parseInt: Integer.valueOf(parseInt(s)
+            //  So we can just use Integer.parseInt(s)
             return Integer.parseInt(inputAsString);
         } catch (NumberFormatException e) {
             // The throw keyword indicates what exception type may be thrown by a method.
