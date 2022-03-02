@@ -15,6 +15,11 @@ public class InputTest {
         // Call yesNo method
         System.out.println("Enter the word that means \"an affirmative response\" ");
         System.out.println(userInput.yesNo());
-
+        // Call getBinary
+        System.out.println("Enter a binary number: ");
+        System.out.println(userInput.getBinary());
+        // Call getHex
+        System.out.println("Enter a hexadecimal number: ");
+        System.out.println(userInput.getHex());
     }
 }
