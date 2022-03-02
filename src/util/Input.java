@@ -70,4 +70,28 @@ public class Input {
             throw new NumberFormatException("Not a decimal.");
         }
     }
+
+    // TODO: Research the .valueOf method on the Integer class. You will find that it can also be used to parse integers in different bases. Use this functionality to create two new methods, getBinary and getHex that will accept a string that is a number in binary or hexadecimal.
+    // Integer(Integer.parseInt(s, radix)) - radix of 2 = binary, 10 = integers, 16 = binary
+    // int is a primitive data type while Integer is a Wrapper class (important for OOP)
+
+    // TODO: I misread the instructions, these methods just check if a entered number is a binary/hex value.
+    public Integer getBinary () {
+        try {
+            String inputAsString = getString();
+            return Integer.parseInt(inputAsString, 2);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("Not a binary value. Expected 0 or 1.");
+        }
+    }
+
+    public Integer getHex() {
+        try {
+            String inputAsString = getString();
+            return Integer.parseInt(inputAsString, 16);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("Not a valid hex value. Expected 0 - 15");
+        }
+    }
 }
+
