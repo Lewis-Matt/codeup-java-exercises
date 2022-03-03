@@ -8,6 +8,7 @@ public class ShapesTest {
         System.out.printf("testShape1 area: %s, perimeter: %s%n", testShape1.getArea(), testShape1.getPerimeter());
         System.out.printf("testShape2 area: %s, perimeter: %s%n", testShape2.getArea(), testShape2.getPerimeter());
         // If I tried to do testShape1.getLength() it will not work as Measurable does not have that method, EVEN though square extends quadrilateral (which does have that method)
+        // From the docs: When you define a new interface, you are defining a new reference data type. You can use interface names anywhere you can use any other data type name. If you define a reference variable whose type is an interface, any object you assign to it must be an instance of a class that implements the interface.
 
         // TODO: Create a variable of the type Rectangle named box1 and assign it a new instance of the Rectangle class with a width of 4 and a length of 5
         Rectangle box1 = new Rectangle(5, 4);
