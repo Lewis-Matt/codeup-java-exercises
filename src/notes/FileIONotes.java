@@ -6,7 +6,12 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class FileIONotes {
+// Streams support many different kinds of data, including simple bytes, primitive data types, localized characters, and objects. Some streams simply pass on data; others manipulate and transform the data in useful ways.
+//
+//No matter how they work internally, all streams present the same simple model to programs that use them: A stream is a sequence of data. A program uses an input stream to read data from a source, one item at a time.
+// A program uses an output stream to write data to a destination, one item at time.
 
+// TODO: path
 //      / refers to roo
 //      . current directory
 //      .. parent directory
@@ -23,14 +28,23 @@ public class FileIONotes {
     //Abstracts away differences between different filesystem paths (Windows vs MacOS)
 
 // TODO: The Paths Class
+    // Helper class
     // Contains static methods for obtaining file paths
     // Can be used to obtain objects that implement Path
-
+    // You can easily create a Path object by using one of the following get methods from the Paths (note the plural) helper class:
+    // Path p1 = Paths.get("/tmp/foo");
+    // Path p2 = Paths.get(args[0]);
+    // Path p3 = Paths.get(URI.create("file:///Users/joe/FileTest.java"));
+    // The Paths.get method is shorthand for the following code:
+    // Path p4 = FileSystems.getDefault().getPath("/users/sally");
+    // You can think of the Path as storing these name elements as a sequence. The highest element in the directory structure would be located at index 0. The lowest element in the directory structure would be located at index [n-1], where n is the number of name elements in the Path. Methods are available for retrieving individual elements or a subsequence of the Path using these indexes.
+    // The normalize method removes any redundant elements, which includes any "." or "directory/.." occurrences. Purely syntactic.
 // TODO: File Class
     // Object that represents a file
 
 // TODO: Files Class
     // Contains static methods for manipulating files
+    // The Files methods work on instances of Path objects.
 
 // Most of the methods we'll discuss for file IO can throw an IOException; you will need to handle this in your application.
 
