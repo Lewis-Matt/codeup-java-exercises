@@ -1,0 +1,86 @@
+A JAR file is a JavaARchive file. JAR files are a zipped directory that contains all the files (usually compiled .class files) an application needs to run, or all the classes in a library. Because JAR files compress a project to a single file, they are a good strategy for distributing applications and libraries.
+
+This way we can distribute our JAR file to others, or to other computers, and it can be run there, without having to transfer every single file in our project.
+We can also include another JAR file in our project. We will then have access to all of the code that the JAR file provides.
+
+
+A dependency is something your application depends on in order to run. Including a JAR file in our project is an example of including a dependency in our project. It is very common to have multiple dependencies (i.e. external libraries) in a project, such as:
+
+    - A library that allows us to talk to a database
+    - Libraries for listening for and responding to HTTP requests
+    - Libraries to allow us to talk to external APIs (e.g. login with Facebook)
+    - Libraries for interacting with JSON in Java
+
+One of the challenges in software development is dependency management.
+
+"Maven" is yiddish for "accumulator of knowledge", and is also an open source project that helps manage Java projects. Maven manages dependencies through what it calls the Project Object Model. This is represented by a file at the top level of your project named pom.xml.
+
+The pom.xml file is an XML file. XML stands for EXtensible Markup Language and can be thought of as a stricter version of HTML.
+
+EXAMPLE POM:
+
+// TODO:
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.codeup.hello-world</groupId>
+        <artifactId>hello-world-app</artifactId>
+        <version>1.0.0</version>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>25.1-jre</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.6</version>
+            </dependency>
+        </dependencies>
+    </project>
+
+<project>: this is the root element for all Maven pom.xml files
+
+<modelVersion>: this defines the version of the Project Object Model specification we are using. Usually this will always be 4.0.0
+
+<groupId> and <artifactId>
+
+These two elements provide a unique way to identify your project. The artifactId is a one-word name for your project. The groupId is a domain name that you control, in reverse. For example, the guava library in the example above has a groupId of com.google.guava because it is produced by Google and Google controls guava.google.com.
+
+If you own a domain name, you can use it for your artifactId
+
+<version>: the version of your application / library. You would increase this number as you release new versions.
+TODO: Semantic Versioning: https://semver.org/
+Major.Minor.Patch (e.g. 2.13.01)
+    MAJOR version when you make incompatible API changes,
+    MINOR version when you add functionality in a backwards compatible manner, and
+    PATCH version when you make backwards compatible bug fixes.
+
+TODO: <dependencies> the dependencies of your project
+
+This element will contain one or more <dependency> elements, each of which specify a single dependency for your project.
+
+Notice the link to https://mvnrepository.com in a comment above each dependency element. While there are others, this site provides an index of many open-source Java libraries, and is where you can find specific information for them, including a copy-pasteable dependency element to put in your pom.xml.
+
+
+Sometimes the IDE overrides the Java version, so it might be necessary to specify the Java version to the maven compiler plugin by adding the following code to your pom.xml:
+
+// TODO:
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+While there is some overhead in creating this pom.xml file, this definition allows Maven to automatically download all of the required JARs for our project, provide access to said JAR files, and even package our application as a JAR and version it.
