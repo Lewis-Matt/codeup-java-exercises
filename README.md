@@ -99,6 +99,8 @@
 - HashMap notes
 
 ## GroceriesApplication
+- collections
+- wrapper classes <class>: as every element in a collection is an object, <> allows us to use primitive data types as objects (e.g. <Integer>)
 - TreeMap
 - Switch
 - old code at the bottom for integrating GroceryArray and GroceryItem
@@ -110,3 +112,8 @@
 ## GroceryItem
 - *not used in the application
 - constructor and methods for creating items for application, and populating array of groceries available
+
+## Dependencies.txt
+- Maven
+- JAR
+- see separate project /IdeaProjects/maven-exercises
