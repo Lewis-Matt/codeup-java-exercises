@@ -104,3 +104,12 @@ The process of removing a user from the system is known as "dropping" it. For ex
 
 DROP USER does not automatically close any open user sessions. Rather, in the event that a user with an open session is dropped, the statement does not take effect until that user's session is closed. Once the session is closed, the user is dropped, and that user's next attempt to log in fails. 
 
+#### Create a new database administrator
+    
+    mysql> GRANT ALL ON *.* TO 'misterlewis'@'localhost' WITH GRANT OPTION;
+    mysql> SHOW GRANTS FOR 'misterlewis'@'localhost' \G
+
+The username should be the same as the username on your mac. You can run the command whoami (from your shell, not from mysql)
+If you are trying to log in to MySQL as a user that has the same username as the user you are logged in to your computer as, you will not need to specify the -u option.
+
+    mysql -p;
