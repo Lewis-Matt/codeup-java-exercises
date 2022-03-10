@@ -165,6 +165,123 @@ When you begin developing an application backed by a database, you must decide h
 #### Quoting Identifiers
 Although great care should be used to avoid using <a href="https://dev.mysql.com/doc/mysqld-version-reference/en/keywords-8-0.html">reserved words</a> in your database names, there is actually a way around it. In SQL, you can actually use any word for a database name, even space characters, so long as we enclose the database name in back ticks (``). In practice though, do not do this. Using a reserved word as a table name is almost never worth the trouble it takes to do so; the same goes double for names with spaces in them.
 
+<hr>
+TODO: Create a new database called codeup_test_db and user codeup_test_user. Give codeup_test_user all permissions only on codeup_test_db. Make sure to remember this new user's password.
+
+    mysql> CREATE DATABASE IF NOT EXISTS codeup_test_db;
+    mysql> CREATE USER 'codeup_test_user'@'localhost' IDENTIFIED BY 'codeup';
+    mysql> GRANT ALL ON codeup_test_db.* TO 'codeup_test_user'@'localhost';
+        // GRANT ALL ON databaseName.databaseTable //
+<hr>
+
+# Tables
+<hr>
+Data is organized into tables. Tables look a lot like a spreadsheet; they break our data down into columns and store individual records in rows. Unlike a spreadsheet however, a database table has a specific set of columns and it is up to us as developers to define what those columns are called and what kind of data they can contain.
+
+## Data Types
+<hr>
+MySQL, and most database systems, are statically typed. This means that when we create our tables we must specify what data type each column will be.
+
+### Numeric Types
+- INT
+- FLOAT - A number containing decimals (not specific or accurate)
+- DOUBLE - A more accurate decimal number
+- DECIMAL(length, precision) — A precise decimal number. Decimal columns must be defined with a length and a precision; length is the total number of digits that will be stored for a value, and precision is the number of digits after the decimal place. For example, a column defined as DECIMAL(4,2) would allow four digits total: two before the decimal point and two after. 
+
+#### Unsigned
+This allows us to potentially store larger numbers in a column but only positive values. For example, a normal INT column can store numbers from -2,147,483,648 to 2,147,483,647, whereas an INT UNSIGNED column can store 0 to 4,294,967,295.
+
+#### Boolean
+MySQL has no native support for boolean values. Instead, it uses a TINYINT data type that goes from -128 to 127 and treats 0 as false and 1 as true.
+
+### String Types
+- CHAR(length) — A string with a fixed number of characters, where length can be from 1 to 255. If a string shorter than length is stored in a CHAR column then the value is padded with empty space to take up the full size. If you try to store a string longer than length, then an error occurs. CHAR column types are ideal for values where you know the length and it is constant, like a state abbreviation CHAR(2), zip code CHAR(5), or phone number CHAR(10).
+- VARCHAR(length) — For strings where the length could vary up to some maximum number. VARCHAR columns are probably the most common type of column you will use in your database tables.
+  - TEXT — A large block of characters that can be any length. It may be tempting to just throw everything in TEXT columns and not worry about lengths, but this is a very bad idea! There are some major technical limitations to TEXT and they can cause serious performance issues if they are abused. Only use TEXT columns for very large blocks of text, like the full text of an article, or the pages of a book.
+      
+
+    Use single quotes (') to indicate string values
+
+### Date Types
+<a href="https://dev.mysql.com/doc/refman/8.0/en/date-and-time-type-syntax.html">Dates and times</a> are deceptively complex data types. 
+- DATE — A date value without any time. Typically MySQL displays dates as YYYY-MM-DD.
+- TIME — A time down to the seconds. MySQL uses 24-hour times.
+- DATETIME — A combined date and time value. DATETIME does not store any timezone information and will typically display information in the format YYYY-MM-DD HH:MM:SS
+
+### Null
+The value NULL has special meaning in relational databases. In most languages null behaves like 0 (many times, it secretly is 0). In MySQL, NULL can be thought of as the absence of value. This has some interesting consequences. If we asked whether NULL != NULL the answer would be NULL. On the other hand, if we asked if NULL = NULL the answer would also be NULL! In essence, you can think of this question as "does some unknown value equal some other unknown value?" to which MySQL responds "How should I know?!"
+
+    Since NULL values are complex, and because they can lead to inconsistent data, columns can specify that their values are NOT NULL. This will prevent NULL from being stored in a particular column and lead to more predictable results.
+
+## Creating Tables
+<hr>
+Syntax:
+
+    CREATE TABLE table_name (
+        column1_name data_type,
+        column2_name data_type,
+        ...
+    );
+Example:
+
+    CREATE TABLE quotes (
+        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+        author_first_name VARCHAR(50),
+        author_last_name  VARCHAR(100) NOT NULL,
+        content TEXT NOT NULL,
+        PRIMARY KEY (id)
+    );
+
+Notice we allow for the author_first_name to be NULL, but that author_last_name and content are both mandatory.
+Primary keys stop us from inserting multiple duplicate values; a primary key is a guaranteed way to uniquely identify a single row in a table. A primary key is a special type of column with the following rules:
+
+    - Each value must be unique.
+    - They cannot be NULL.
+    - There can only be one primary key in a table.
+Most of the time, it is perfectly reasonable to let the database server manage your primary key values for you.
+
+    The Column 'id' is a column just like the other four, but we have added some additional constraints to it. We have specified that the id is an UNSIGNED integer. This is because MySQL will assign IDs starting with 1; it does not make sense to allow negative values in our column. The last part of our column definition is AUTO_INCREMENT. This is what instructs MySQL to generate new values for this column when we try to insert records into our table. Only one column per table may be AUTO_INCREMENT and it must be the primary key. Finally, at the end of our table definition, we specify that the PRIMARY KEY for the table is id.
+
+### Default Values
+For any given column we can specify a default value for it in our table definition. For example, if we wanted to specify that the default first name was 'NONE' we could do so in our table definition like so:
+
+    author_first_name VARCHAR(50) DEFAULT 'NONE',
+
+## Showing Tables
+<hr>
+If we need to see what tables are defined in a database:
+
+    SHOW TABLES;
+
+## Describing Tables
+<hr>
+he command to show the structure of a table:
+
+    DESCRIBE quotes;
+MySQL uses EXPLAIN and DESCRIBE interchangeably. By convention we use DESCRIBE when we want to inspect a table, and EXPLAIN when we want to analyze a query.
+
+MySQL can also display the original command used to create a table by using:
+
+    SHOW CREATE TABLE quotes\G;
+
+## Dropping Tables
+<hr>
+
+    DROP TABLE IF EXISTS quotes;
+The same is also true about the inverse:
+    
+    CREATE TABLE IF NOT EXISTS quotes (
+        ...
+    );
+
+## SQL Scripts
+<hr>
+we can create our SQL commands in a script file and then instruct the MySQL command line client to run those commands. In order to do so, we create a file with the extension .sql. The script can contain as many SQL queries as needed, each ending with ; or \G. To run the script, use the following command:
+
+    mysql -u USERNAME -p -t < filename.sql
+The < filename.sql tells the MySQL command line client to read the specified file and execute all the SQL queries in it. The option -t makes MySQL output data in tables just like when we interact with it directly.
+
+You can add comments in your SQL script with two dashes: --. Everything on a line after -- is a comment and will not be executed.
 
 
 
