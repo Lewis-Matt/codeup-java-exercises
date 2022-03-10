@@ -113,3 +113,58 @@ The username should be the same as the username on your mac. You can run the com
 If you are trying to log in to MySQL as a user that has the same username as the user you are logged in to your computer as, you will not need to specify the -u option.
 
     mysql -p;
+
+# Databases
+<hr>
+The main organization structure of MySQL is a database. One MySQL server can have many databases. In fact, our MySQL server came with three system databases already defined, one of which we have already been working with (mysql). Databases are where MySQL stores virtually all of its data (the notable exception being users & their privileges).
+
+### Creating
+
+    CREATE DATABASE IF NOT EXISTS database_name;
+
+Database names should be all lower case, with underscores used to separate words in their name. Often times we will end a database name with _db.
+
+Sometimes we may be creating a database in an automated script. In this case, if we try to create a database that already exists, MySQL will give us an error. We can avoid this problem by adding the condition IF NOT EXISTS. That way, if the database has already been created, the CREATE query will be skipped.
+
+### Listing
+
+    SHOW DATABASES;
+
+### Selecting
+Since virtually all MySQL information is stored within a database, it can be convenient to switch to a particular database. Doing so ensures that your subsequent queries refer (by default) to tables and other objects within that database. 
+
+    USE database_name;
+
+At times it may be necessary to refer to a table or object in a separate database. Or, if you have just connected to a MySQL server, you may not have any database selected. To do this, you can use the syntax:
+
+    database_name.table_name
+
+Notice that most of our queries refer to the mysql database (e.g. mysql.user). That is because we had not selected any database at that point.
+
+### Show Current db
+
+    SELECT database();
+You can actually find out the query used to create a database with:
+
+    SHOW CREATE DATABASE database_name;
+The query has given us the exact SQL command necessary to recreate the database. This could be useful if we were trying to export or duplicate our database on a different server. 
+
+### Deleting
+
+    DROP DATABASE IF EXISTS database_name;
+Trying to delete a database that does not already exist can create errors. To avoid this problem when trying to drop a database in a script we use IF EXISTS.
+
+#### Database vs Schema
+You may notice the word "schema" being used in documentation in several places. Other RDBMSs use schemas as a second level of organization within databases and strictly separate databases from each other from the user's perspective. Within MySQL, "database" and "schema" mean the same thing and can be used interchangeably.
+
+#### Application specific databases
+When you begin developing an application backed by a database, you must decide how to organize that information within your database. Most web applications can be encapsulated in a single database. Because of this, we will usually pair our application's database with a dedicated user. This user would be granted full control of just that database. We do this also as a security measure: if our application's user is somehow compromised, attackers only have access to the data for that application, not to any other database on our server.
+
+    Note: Most other RDBMSs take this practice one step further, treating users & schemas interchangeably, or declaring that a schema is "owned" by a particular user. MySQL is unique in that it completely separates the idea of "users" from "databases / schemas"
+
+#### Quoting Identifiers
+Although great care should be used to avoid using <a href="https://dev.mysql.com/doc/mysqld-version-reference/en/keywords-8-0.html">reserved words</a> in your database names, there is actually a way around it. In SQL, you can actually use any word for a database name, even space characters, so long as we enclose the database name in back ticks (``). In practice though, do not do this. Using a reserved word as a table name is almost never worth the trouble it takes to do so; the same goes double for names with spaces in them.
+
+
+
+
