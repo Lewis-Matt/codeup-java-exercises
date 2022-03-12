@@ -67,6 +67,20 @@ In the body of the doGet method, we set the content type of the request, get a r
 
     We'll map each servlet we create to a URL, meaning that each unique URL in our application will have a servlet associated with it, and to add a new URL, we would need to create a new servlet.
 
+### Request Parameters
+https://www.oreilly.com/library/view/java-servlet-programming/156592391X/ch04s04.html
+
+Each access to a servlet can have any number of request parameters associated with it. These parameters are typically name/value pairs that tell the servlet any extra information it needs to handle the request. Please don’t confuse these request parameters with init parameters, which are associated with the servlet itself.
+
+Fortunately, even though a servlet can receive parameters in a number of different ways, every servlet retrieves its parameters the same way, using getParameter() and getParameterValues() :
+    
+    public String ServletRequest.getParameter(String name)
+    public String[] ServletRequest.getParameterValues(String name)
+getParameter() returns the value of the named parameter as a String or null if the parameter was not specified.
+If there’s any chance a parameter could have more than one value, you should use the getParameterValues() method instead. This method returns all the values of the named parameter as an array of String objects or null if the parameter was not specified. A single value is returned in an array of length 1.
+
+    WARNING: if the parameter information came in as encoded POST data, it may not be available if the POST data has already been read manually using the getReader() or getInputStream() method of ServletRequest (because POST data can be read only once).
+
 ## Servlet Life Cycle
 <hr>
 Unlike our past Java projects, our application does not have a main method. Instead, Tomcat will be taking over control (initially) for us.
@@ -108,6 +122,7 @@ And we had created a servlet mapped to /register with the @WebServlet annotation
     String email = request.getParameter("email");
     // Now we can do something with the email like save it in our database, or
     // use it to send a message to the user
+
 #### getSession
 Gives access to the session object.
 
